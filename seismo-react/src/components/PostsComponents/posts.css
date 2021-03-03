@@ -1,0 +1,46 @@
+.post-card{
+  background-color: var(--color4);
+  margin: 20px;
+  padding: 20px;
+  height: 150px;
+  width: 1000px;
+}
+
+.card-content{  
+  justify-content: space-between;
+  width: 100%;
+}
+
+.post-img{  
+  margin-right: 30px;
+  height: 100px;
+  width: 100px;
+}
+.card-stats{  
+  justify-content: space-between;
+  width: 600px;
+}
+.post-action{ 
+  flex-direction: row-reverse;
+}
+
+.user{  
+
+}
+
+.content{ 
+  height: 100px;
+}
+
+.card-footer{ 
+  justify-content: space-between;
+  width: 100%;
+}
+
+.post-date{ 
+
+}
+
+.mag{ 
+
+}

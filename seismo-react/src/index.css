@@ -1,3 +1,32 @@
+:root{
+  --color1: gold;
+  --color2: #0F002E;
+  --color3: #0F002E;
+  --color4: #1f005d;
+  --color5: #0F002E;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+
+
+*{
+  color: var(--color1);
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body{
+  background-color: var(--color5);
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
 .flex-r{
   display: flex;
   flex-direction: row;
@@ -12,3 +41,4 @@
   justify-content: center;
   align-items: center;
 }
+

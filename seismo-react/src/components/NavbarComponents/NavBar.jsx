@@ -1,7 +1,15 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import React, { Component } from 'react'
-import Login from './Login'
-import SignUp from './SignUp'
+import './navbar.css'
+// import Login from './Login'
+// import SignUp from './SignUp'
+import Auth from './Auth'
+// import firebase from 'firebase/app'
+import 'firebase/auth'
+import logo from '../../assets/Seismo_logo.png'
+
+
+// const auth =firebase.auth()
 
 export class Navbar extends Component {
   state = {
@@ -80,7 +88,7 @@ export class Navbar extends Component {
   }
 
   render() {
-    const loginFunctions = {
+/*     const loginFunctions = {
       handleLogin:this.handleLogin,
       handleChange:this.handleChange
     }
@@ -88,22 +96,23 @@ export class Navbar extends Component {
     const signUpFunctions = {
       handleSignUp:this.handleSignUp,
       handleChange:this.handleChange
-    }
+    } */
 
+    
     // handleSignUp
     return (
       <>
         <header>
           <nav className="flex-r">
-            <div className="nav-right">
-              <img src="" alt='Seismo-Logo' className="logo-img col s2"/>
-              <h1 className="nav-name text-shadow">Seismo</h1>
+            <div className="flex-r">
+              <img src={logo} alt='Seismo-Logo' className="logo-img"/>
+              <h3 className="nav-name">Seismo</h3>
             </div>
-            
             <div>
               <ul>
                 {/* <li><Login state={this.state} function={loginFunctions}/></li>
                 <li><SignUp state={this.state} function={signUpFunctions}/></li> */}
+                <li><Auth/></li>
               </ul>
             </div>
           </nav>
@@ -112,5 +121,6 @@ export class Navbar extends Component {
     )
   }
 }
+
 
 export default Navbar

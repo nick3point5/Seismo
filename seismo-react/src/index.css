@@ -1,13 +1,14 @@
 :root{
-  --color1: gold;
-  --color2: #0F002E;
-  --color3: #0F002E;
+  --color1: #ffd700;
+  --color2: #E71D36;
+  --color3: #7699D4;
   --color4: #1f005d;
   --color5: #0F002E;
+  --color6: #6DAEDB;
+  --color7: #000;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
-
 
 *{
   color: var(--color1);
@@ -18,13 +19,15 @@
 
 body{
   background-color: var(--color5);
+  position: relative;
 }
 
 #root{
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
+  min-height: 100vh; */
+  height: 100%;
 }
 
 .flex-r{
@@ -42,3 +45,29 @@ body{
   align-items: center;
 }
 
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal{
+  background-color: var(--color4);
+}
+
+.modal .modal-footer{
+  background-color: var(--color4);
+}
+
+.btn{
+  background-color: var(--color3);
+  color: var(--color1)
+}
+.btn:hover{
+  background-color: var(--color6);
+  color: var(--color7)
+}
+.btn:focus{
+  background-color: var(--color3);
+  color: var(--color1)
+}

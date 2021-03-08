@@ -1,10 +1,16 @@
 import React from 'react'
+import './footer.css'
 
-function Footer() {
+function Footer({ content }) {
   return (
-    <footer className="center">
-      Kenny Trinh © 2021
-    </footer>
+      <div>
+          <div className="phantom" />
+          <div className="footer">
+            <footer className="center footer">
+            Kenny Trinh © 2021
+            </footer>
+          </div>
+      </div>
   )
 }
 

@@ -1,9 +1,4 @@
-import React, { Component } from 'react'
-import Posts from '../components/PostsComponents/Posts'
-import 'firebase/auth'
-import NewForm from '../components/FormsComponents/NewForm'
 import firebase from 'firebase/app'
-import { useAuthState } from 'react-firebase-hooks/auth'
 
 if (!firebase.apps.length) {
   firebase.initializeApp({
@@ -17,16 +12,3 @@ if (!firebase.apps.length) {
 }else {
   firebase.app();
 }
-const auth =firebase.auth()
-
-export class Details extends Component {
-  render() {
-    return (
-      <div>
-        
-      </div>
-    )
-  }
-}
-
-export default Details

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Modal, Button } from 'react-materialize';
 
-function New(props) {
-  console.log(props.post._id);
+function Reply(props) {
+  
   return (
     <form>
       <Modal 
@@ -20,10 +20,16 @@ function New(props) {
             id="comment" 
             onChange={props.function.handleChange} 
             autoComplete="off"
-          />
+            value={props.comment}
+            minLength="1"
+            maxLength="200"
+            required
+          >
+            {props.comment}
+          </textarea>
       </Modal>
     </form>
   )
 }
 
-export default New
+export default Reply

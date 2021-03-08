@@ -1,14 +1,13 @@
 import React from 'react'
 import { Modal, Button } from 'react-materialize';
 
-function New(props) {
+function Edit(props) {
   
   return (
     <form>
       <Modal 
         trigger={<button className="btn">Edit</button>}
         actions={[<Button modal="close" onClick={()=>props.function.handleUpdate(props.post._id)}>Post</Button>]}
-        // actions={[<Button modal="close" >Post</Button>]}
       >
           <p className="">Create a edit post</p>
           <div className="input-field">
@@ -22,10 +21,15 @@ function New(props) {
             onChange={props.function.handleChange}
             autoComplete="off"
             value={props.comment}
-          />
+            minLength="1"
+            maxLength="200"
+            required
+          >
+            {props.comment}
+          </textarea>
       </Modal>
     </form>
   )
 }
 
-export default New
+export default Edit

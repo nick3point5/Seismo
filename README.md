@@ -4,7 +4,7 @@
 Seismo is a social media web app that lets you see what shaking around you. Like most soical media apps you can post messages or a "termor" to the Seismo network. A unique feature of Seismo is it's alogorithm, Seismo calulates and ranks tremors by users engagement. The more tremors the stronger the earthquake. But, Seismo feed will also stay fresh too. Over time earthquakes weaken, paving new ground for new earthquakes. When earthquakes die they gone for good, rest assured I don't care about your private info at all. Let's get shaking!
 
 ##Links
-- seismo.ga
+- [seismo.ga](seismo.ga)
 - https://seismo-react.herokuapp.com/
 
 ##Purpose

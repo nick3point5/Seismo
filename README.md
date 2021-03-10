@@ -39,7 +39,7 @@ Seismo is a social media web app that lets you see what shaking around you. Like
 5. `$ cd ../../seismo-react`
 6. Install React dependances by running 
    `$ npm i`
-7. In the ./src/config take notice the **firebaseInit.jsx**. This is were you want to input your firebase keys. Also consider **Api.jsx**, this is where the api location will be pass to react. 
+7. In the ./src/config take notice the **firebaseInit.jsx**. This is where you want to input your firebase keys. Also consider **Api.jsx**, this is where the api location will be pass to react. 
 -------
 # Pre-development 
 ## User Stories

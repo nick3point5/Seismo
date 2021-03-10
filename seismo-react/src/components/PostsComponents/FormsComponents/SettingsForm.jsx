@@ -4,37 +4,22 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/storage'
 import { useAuthState } from 'react-firebase-hooks/auth'
-// import {  } from "../../context/firebaseInit";
-
-
-// if (!firebase.apps.length) {
-//   firebase.initializeApp({
-//     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-//     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-//     projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-//     storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-//     messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-//     appId: process.env.REACT_APP_FIREBASE_APP_ID
-//   })
-// }else {
-//   firebase.app();
-// }
+import {SettingsIcon} from '../../IconComponents/Icon';
 
 const auth =firebase.auth()
 
-function UpdateForm(props) {
+function SettingsForm(props) {
   const [user]=useAuthState(auth)
-  
   return (
     <form>
       <Modal 
-        trigger={<Button className="btn">Change Profile</Button>}
+        trigger={<Button className="btn user-action-btn" title="change profile"><SettingsIcon/></Button>}
         actions={[<Button modal="close" onClick={()=>{props.functions.handleUpdate(user)}}>Update</Button>]}
       >
-          <p className="">Change Profile</p>
+          <p className="form-title">Change Profile</p>
           <div className="input-field">
           </div>
-          <label htmlFor="">Name</label>
+          <label htmlFor="">Username</label>
           <br></br>
           <input 
             type="text"
@@ -43,18 +28,33 @@ function UpdateForm(props) {
             onChange={props.functions.handleChange} 
             autoComplete="off"
             value={props.displayName}
-          ></input>
+            maxLength="12"
+          />
+          <br/>
+          <label htmlFor="">About</label>
+          <br></br>
+          <textarea 
+            type="text"
+            name="about" 
+            id="about" 
+            onChange={props.functions.handleChange} 
+            autoComplete="off"
+            value={props.about}
+            maxLength="12"
+          />
+          <br/>
+          <label htmlFor="">Upload Profile Pic</label>
           <br/>
           <input 
             type="file"
             name="photo" 
             id="photo" 
             accept=".png, .jpg, .gif, .jpeg"
-            onChange={props.functions.handleChange} 
+            onChange={props.functions.handleChange}
           />
       </Modal>
     </form>
   )
 }
 
-export default UpdateForm
+export default SettingsForm

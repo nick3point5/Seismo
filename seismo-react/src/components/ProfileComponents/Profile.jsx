@@ -4,46 +4,38 @@ import './profile.css'
 import logo from '../../assets/logo_small.png'
 import 'firebase/auth'
 import firebase from 'firebase/app'
+import SettingsForm from '../PostsComponents/FormsComponents/SettingsForm'
 
-// if (!firebase.apps.length) {
-//   firebase.initializeApp({
-//     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-//     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-//     projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-//     storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-//     messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-//     appId: process.env.REACT_APP_FIREBASE_APP_ID
-//   })
-// }else {
-//   firebase.app();
-// }
 const auth =firebase.auth()
 
 export default function Profile(props) {
-  // console.log(props.following);
   let profile = ''
-  if (props.profile) {
-    profile=profileCard(props.profile,auth.currentUser,props.followers,props.following,props.functions)
+  if (props.state.profile) {
+    profile=profileCard(props.state,props.functions)
   }
   return (
     profile
   )
 }
 
-function profileCard(profile,user,followers,following,functions) {
-
+function profileCard(state,functions) {
+  const {profile,followers,following,displayName,about}=state
+  const user = auth.currentUser
 
   function followersComp() {
     return (
       <div className="followers">
-        <h3>Followers</h3>
-        {followers?followers.map(follower=>{
-          return (
-            <Link to={`/user/${follower.uid}`} key={follower.uid}>
-              <img src={follower.img||logo} alt="" className="user-icon" title={follower.username}/>
-            </Link>
-          )
-        }):""}
+        <h3 className="followers-text">Followers</h3>
+        <div className="user-icons-container">
+          {followers?followers.map(follower=>{
+            return (
+              <Link to={`/user/${follower.uid}`} key={follower.uid}>
+                <img src={follower.img||logo} alt={follower.username+' icon image'} className="user-icon" title={follower.username}/>
+              </Link>
+            )
+          }):""}
+        </div>
+        
       </div>
     )
   }
@@ -51,14 +43,17 @@ function profileCard(profile,user,followers,following,functions) {
   function followingComp() {
     return (
       <div className="following">
-        <h3>Following</h3>
-        {following?following.map(follow=>{
-          return (
-            <Link to={`/user/${follow.uid}`} key={follow.uid}>
-              <img src={follow.img||logo} alt="" className="user-icon" title={follow.username}/>
-            </Link>
-          )
-        }):""}
+        <h3 className="following-text">Following</h3>
+        <div className="user-icons-container">
+          {following?following.map(follow=>{
+            return (
+              <Link to={`/user/${follow.uid}`} key={follow.uid}>
+                <img src={follow.img||logo} alt={follow.username+' icon image'} className="user-icon" title={follow.username}/>
+              </Link>
+            )
+          }):""}
+        </div>
+
       </div>
     )
   }
@@ -73,37 +68,38 @@ function profileCard(profile,user,followers,following,functions) {
     }
     return false
   }
-  
 
-  
-  if (!user || (user.uid === profile.uid && followers)) {
-    return (
-      <div className="profile-card">
-        <img src={profile.img||logo} alt=""/>
-        <h1>{profile.username}</h1>
-        <p>{profile.about}</p>
-        {followersComp()}
-        {followingComp()}
-      </div>
-    )
-      
-  }else{
   return (
-    <div className="profile-card">
-      <img src={profile.img||logo} alt=""/>
-      <h1>{profile.username}</h1>
-      <p>{profile.about}</p>
-      {checkFollowers(followers)?
-        <button className="btn" onClick={()=>{
-          functions.handleUnFollow(user)
-        }}>UnFollow</button>:
-        <button className="btn" onClick={()=>{
-          functions.handleFollow(user)
-        }}>Follow</button>
+    <div className="profile-card flex-r shadow base-card">
+      <div className="user-container flex-c center">
+        <p className="profile-username">{profile.username}</p>
+        <img src={profile.img||logo} alt={profile.username+' profile image'} className="profile-img"/>
+      </div>
+      <div className="about-container center">
+        <p className="profile-about">{profile.about}</p>
+      </div>
+
+      <div className="other-users flex-c">
+      {(user && (user.uid !== profile.uid))?
+        (checkFollowers(followers)?
+        <button className="btn user-action-btn" onClick={()=>{functions.handleUnFollow(user)}}>UnFollow</button>:
+        <button className="btn user-action-btn" onClick={()=>{functions.handleFollow(user)}}>Follow</button>):
+        (user && user.uid === profile.uid)?<SettingsForm functions={functions} displayName={displayName} about={about}/>:''
       }
-      {followersComp()}
-      {followingComp()}
+        <div className="follow-container flex-r">
+          <div className="divider-container d1">
+            <div className="divider d1"></div>
+          </div>
+          {followersComp()}
+          <div className="divider-container d2">
+            <div className="divider d2"></div>
+          </div>
+          {followingComp()}
+        </div>
+
+      </div>
+
+
     </div>
   )
-  }
 }

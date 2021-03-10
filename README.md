@@ -8,6 +8,9 @@ Seismo is a social media web app that lets you see what shaking around you. Like
 - [seismo.ga](http://seismo.ga)
 - https://seismo-react.herokuapp.com/
 
+- [API git](https://github.com/nick3point5/seismo-api)
+- [React git](https://github.com/nick3point5/seismo-react)
+
 ## Purpose
 - Solo final project with a 1 week duration and 3 weeks training with React libirary.
 -------

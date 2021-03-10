@@ -1,0 +1,4 @@
+[submodule ".\\seismo-api\\"]
+	url = https://github.com/nick3point5/seismo-api
+[submodule ".\\seismo-react\\"]
+	url = https://github.com/nick3point5/seismo-react

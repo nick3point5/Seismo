@@ -39,6 +39,7 @@
 	height: 6.25rem;
 	margin: 0 1.5rem;
 	font-size: 1.5rem;
+	word-wrap: break-word  ;
 }
 
 .card-footer {

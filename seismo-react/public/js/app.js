@@ -1,4 +1,4 @@
-window.addEventListener("load", function () {
+document.body.onload = function () {
 	function rippleEffect() {
 		const body = document.body;
 		const fillRatio = 0.5;
@@ -39,6 +39,7 @@ window.addEventListener("load", function () {
 			}
 		}, 500);
 	}
+
 	function bodyShake() {
 		document.body.classList.add("shake");
 		setInterval(() => {
@@ -46,16 +47,7 @@ window.addEventListener("load", function () {
 		}, 1500);
 	}
 
-	function logoShake() {
-		const logoEle = document.getElementById("nav-logo");
-		logoEle.addEventListener("mouseover", () => {
-			logoEle.classList.add("shake");
-		});
-		logoEle.addEventListener("mouseout", () => {
-			logoEle.classList.remove("shake");
-		});
-	}
-
 	rippleEffect();
 	bodyShake();
-});
+
+};

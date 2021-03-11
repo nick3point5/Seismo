@@ -3,8 +3,8 @@ import { Modal, Button } from 'react-materialize';
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import '../../../config/firebaseInit'
-import { PostIcon } from '../../IconComponents/Icon';
+import '../../config/firebaseInit'
+import { PostIcon } from '../IconComponents/Icon';
 
 const auth = firebase.auth()
 

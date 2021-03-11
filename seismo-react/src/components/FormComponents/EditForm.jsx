@@ -1,6 +1,6 @@
 import React from 'react'
 import { Modal, Button } from 'react-materialize';
-import { EditIcon } from '../../IconComponents/Icon';
+import { EditIcon } from '../IconComponents/Icon';
 import './form.css'
 
 function Edit(props) {

@@ -1,3 +1,12 @@
-const seismoApiUrl = process.env.REACT_APP_SEISMO_API_URL || 'http://localhost:4000'
+let seismoApiUrl, wsSeismoApiUrl
 
+if (process.env.REACT_APP_PRODUCTION) {
+  seismoApiUrl = `https://${process.env.REACT_APP_SEISMO_API_URL}`
+  wsSeismoApiUrl = `wss://${process.env.REACT_APP_SEISMO_API_URL}`
+} else {
+  seismoApiUrl = 'http://localhost:4000'
+  wsSeismoApiUrl = 'wss://localhost:4000'
+}
+
+export { wsSeismoApiUrl }
 export default seismoApiUrl

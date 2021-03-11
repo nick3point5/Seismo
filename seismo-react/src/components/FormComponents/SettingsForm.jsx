@@ -4,19 +4,19 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/storage'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { SettingsIcon } from '../../IconComponents/Icon';
+import { SettingsIcon } from '../IconComponents/Icon';
 
 const auth = firebase.auth()
 
 function SettingsForm(props) {
   const [user] = useAuthState(auth)
   return (
-    <form>
-      <Modal
-        trigger={<Button className="btn user-action-btn" title="change profile"><SettingsIcon /></Button>}
-        actions={[<Button modal="close" onClick={() => { props.functions.handleUpdate(user) }}>Update</Button>,
-        <Button modal="close" className="btn user-delete-btn delete-btn" onClick={() => { props.functions.handleUserDelete(user) }}>Delete</Button>]}
-      >
+    <Modal
+      trigger={<Button className="btn user-action-btn settings-btn" title="change profile"><SettingsIcon /></Button>}
+      actions={[<Button modal="close" onClick={() => { props.functions.handleUpdate(user) }}>Update</Button>,
+      <Button modal="close" className="btn user-delete-btn delete-btn" onClick={() => { props.functions.handleUserDelete(user) }}>Delete</Button>]}
+    >
+      <form onSubmit={(event) => props.functions.handleUpdate(user)}>
         <p className="form-title">Change Profile</p>
         <div className="input-field">
         </div>
@@ -53,8 +53,8 @@ function SettingsForm(props) {
           accept=".png, .jpg, .gif, .jpeg"
           onChange={props.functions.handleChange}
         />
-      </Modal>
-    </form>
+      </form>
+    </Modal>
   )
 }
 

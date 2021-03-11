@@ -32,34 +32,49 @@
 	width: 12.5rem;
 }
 
+.user-action-container {
+	width: 100%;
+	height: 2.25rem;
+}
+
 .user-action-btn {
 	z-index: 1;
-	transform: translate(-1.75rem, 0);
 	position: absolute;
 }
 
 .profile-nav {
 	justify-content: space-between;
 	width: 100%;
-	animation: slide-in 2.5s;
 	transition: 0.5s;
 }
 
 @keyframes slide-in {
 	0% {
+		background-color: var(--color6);
+		z-index: 0;
+		height: 5rem;
+		margin: 0 1rem;
 		opacity: 0;
 	}
 	80% {
+		background-color: var(--color6);
+		z-index: 0;
+		height: 5rem;
+		margin: 0 1rem;
 		opacity: 0;
 		transform: translateY(-5rem);
 	}
 	100% {
+		background-color: var(--color6);
+		z-index: 0;
+		height: 5rem;
+		margin: 0 1rem;
 		opacity: 1;
 	}
 }
 
 .profile-nav {
-	width: 100%
+	width: 100%;
 }
 
 .profile-nav-item {
@@ -67,6 +82,8 @@
 	z-index: 0;
 	height: 5rem;
 	margin: 0 1rem;
+	animation: slide-in 2.5s;
+	transition: 1s;
 }
 
 .profile-nav-item-btn {
@@ -182,13 +199,9 @@
 		padding: 1rem;
 	}
 
-	.other-users {
-		flex-direction: column-reverse;
-	}
-
 	.user-action-btn {
 		z-index: 1;
-		transform: translate(0, -0.5rem);
+		transform: translate(0, 2rem);
 		position: relative;
 	}
 
@@ -237,6 +250,5 @@
 			justify-content: space-between;
 			margin-top: 2rem;
 		}
-
 	}
 }

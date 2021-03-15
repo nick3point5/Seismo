@@ -25,7 +25,7 @@ Seismo is a social media web app that lets you see what shaking around you. Like
 
 # Installation Guide
 -------
-##prerequisites
+## Prerequisites
 - must have node package manger installed
 - firebase account with API keys for storage and authenitaction
 - firebase project allow for sign by email and google
